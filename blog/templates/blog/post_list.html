@@ -1,29 +1,14 @@
-<html>
-    <head>
-        <title>Ola's blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="poesia">Ola's Blog</a></h1>
-        </div>
+                {% extends 'blog/base.html' %}
+        {% block content %}
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="poesia">My first post</a></h2>
-            <p>É claro que a vida é boa 
-E a alegria, a única indizível emoção 
-É claro que te acho linda 
-Em ti bendigo o amor das coisas simples </p>
-        </div>
 
-        <div>
-        <div>
-    <h1><a href="/">My second post</a></h1>
-</div>
+                {% for post in posts %}
+                    <div>
+                        <p>published: {{ post.published_date }}</p>
+                        <h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+                {% endblock content %}
+   
 
-{% for poesia2 in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h1><a href="">{{ post.title }}</a></h1>
-    </div>
-{% endfor %}
