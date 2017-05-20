@@ -17,3 +17,13 @@ Em ti bendigo o amor das coisas simples </p>
         </div>
 
         <div>
+        <div>
+    <h1><a href="/">My second post</a></h1>
+</div>
+
+{% for poesia2 in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+    </div>
+{% endfor %}
